@@ -11,7 +11,12 @@ public class Main {
         int today = monthToDay(nums[2][0], nums[2][0]) + nums[2][1];
         for (int i = 0; i < 2; i++) {
             int days = monthToDay(nums[i][0], nums[2][0]) + nums[i][1];
-            System.out.println(days - today);
+            int diff = days - today;
+            if (diff < 0){
+                System.out.println(365 + diff);
+            } else {
+                System.out.println(diff);
+            }
         }
     }
 
@@ -91,7 +96,6 @@ public class Main {
             for (int i = 0; i < birthMonth - 1; i++) {
                 days += months[i];
             }
-            return days;
         } else {
             for (int i = 0; i < 12; i++) {
                 days += months[i];
@@ -100,9 +104,9 @@ public class Main {
                 days += months[i];
 
             }
-            return days;
 
         }
+        return days;
 
     }
 }

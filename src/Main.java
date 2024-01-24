@@ -1,12 +1,20 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 import static java.lang.Math.abs;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(monthToDay(1, 3));
+        String[] stringNums = userInput();
+        int[][] nums = stringToInt(stringNums);
 
+        int today = monthToDay(nums[2][0], nums[2][0]) + nums[2][1];
+        for (int i = 0; i < 2; i++) {
+            int days = monthToDay(nums[i][0], nums[2][0]) + nums[i][1];
+            System.out.println(days - today);
+        }
     }
+
 
     public static String[] userInput() {
         try (Scanner console = new Scanner(System.in)) {
@@ -24,6 +32,17 @@ public class Main {
 
     }
 
+    public static String[] splitDate(String[] dates, int n) {
+        String date = dates[n];
+        String[] elements = {};
+        if (date.contains("/")) {
+            elements = date.split("/");
+        } else if (date.contains(" ")) {
+            elements = date.split(" ");
+        }
+        return elements;
+    }
+
     public static int[][] stringToInt(String[] strings) {
 
         int[] date1 = new int[0];
@@ -31,8 +50,9 @@ public class Main {
         int[] date3 = new int[0];
 
         for (int i = 0; i < strings.length; i++) {
-            String date = strings[i];
-            String[] elements = date.split(" ");
+
+            String[] elements = splitDate(strings, i);
+
             // ex. elements = {"05", "27"}
             int num1 = Integer.parseInt(elements[0]);
             int num2 = Integer.parseInt(elements[1]);
@@ -59,7 +79,7 @@ public class Main {
         jan = mar = may = jul = aug = oct = dec = 31;
         int apr, jun, sep, nov;
         apr = jun = sep = nov = 30;
-        int feb = 28;
+        int feb = 29; // 2024 is a leap year
         int days = 0;
 
         int[] months = {jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec};

@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 import static java.lang.Math.abs;
 
-public class Main {
+public class Birthday {
     public static void main(String[] args) {
         String[] stringNums = userInput();
         int[][] nums = stringToInt(stringNums);

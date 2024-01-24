@@ -8,15 +8,32 @@ public class Main {
         String[] stringNums = userInput();
         int[][] nums = stringToInt(stringNums);
 
+        int bday1 = dayMath(nums, 0);
+        int bday2 = dayMath(nums, 1);
+
+        System.out.println("There are " + bday1 + " days until birthday 1.");
+        System.out.println("There are " + bday2 + " days until birthday 2.");
+        System.out.println();
+
+        if (bday1 < bday2){
+            System.out.println("Birthday 1 is sooner than birthday 2.");
+        } else if (bday2 < bday1){
+            System.out.println("Birthday 2 is sooner than birthday 1.");
+
+        } else {
+            System.out.println("Birthday 1 and 2 are the same!");
+        }
+    }
+
+    public static int dayMath(int[][] nums, int n) {
         int today = monthToDay(nums[2][0], nums[2][0]) + nums[2][1];
-        for (int i = 0; i < 2; i++) {
-            int days = monthToDay(nums[i][0], nums[2][0]) + nums[i][1];
-            int diff = days - today;
-            if (diff < 0){
-                System.out.println(365 + diff);
-            } else {
-                System.out.println(diff);
-            }
+
+        int days = monthToDay(nums[n][0], nums[2][0]) + nums[n][1];
+        int diff = days - today;
+        if (diff < 0) {
+            return 365 + diff;
+        } else {
+            return diff;
         }
     }
 

@@ -33,6 +33,8 @@ public class Birthday {
         int bday1 = dayMath(nums, 0);
         int bday2 = dayMath(nums, 1);
 
+        System.out.println();
+
         System.out.println("There are " + bday1 + " days until birthday 1.");
         System.out.println("There are " + bday2 + " days until birthday 2.");
         System.out.println();

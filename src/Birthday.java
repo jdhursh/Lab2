@@ -4,6 +4,14 @@ import static java.lang.Math.abs;
 
 public class Birthday {
     public static void main(String[] args) {
+
+        System.out.println("How many days until your birthday?");
+        System.out.println();
+        System.out.println("Dates should be formatted like the following: ");
+        System.out.println("05/27");
+        System.out.println("05 27");
+        System.out.println();
+
         String[] stringNums = userInput();
         int[][] nums = stringToInt(stringNums);
 
@@ -14,13 +22,13 @@ public class Birthday {
         System.out.println("There are " + bday2 + " days until birthday 2.");
         System.out.println();
 
-        if (bday1 < bday2){
+        if (bday1 < bday2) {
             System.out.println("Birthday 1 is sooner than birthday 2.");
-        } else if (bday2 < bday1){
+        } else if (bday2 < bday1) {
             System.out.println("Birthday 2 is sooner than birthday 1.");
 
         } else {
-            System.out.println("Birthday 1 and 2 are the same!");
+            System.out.println("Birthday 1 and 2 are the same day!");
         }
     }
 
@@ -42,10 +50,26 @@ public class Birthday {
 
             System.out.println("Please enter the month and day of birthday 1: ");
             String dateOfBirth1 = console.nextLine();
+            while (dateOfBirth1.length() != 5) {
+                System.out.println("Please enter the month and day of birthday 1: ");
+                dateOfBirth1 = console.nextLine();
+            }
+
             System.out.println("Please enter the month and day of birthday 2: ");
             String dateOfBirth2 = console.nextLine();
+            while (dateOfBirth2.length() !=5) {
+                System.out.println("Please enter the month and day of birthday 2: ");
+                dateOfBirth2 = console.nextLine();
+            }
+
             System.out.println("Please enter today's month and day: ");
             String todaysDate = console.nextLine();
+            while (todaysDate.length() != 5) {
+                System.out.println("Please enter today's month and day: ");
+                todaysDate = console.nextLine();
+
+            }
+
 
             return new String[]{dateOfBirth1, dateOfBirth2, todaysDate};
 

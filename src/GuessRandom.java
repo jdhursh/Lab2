@@ -1,3 +1,5 @@
+// This program prompts the user to think of a random number between 1 and 10, then will attempt to guess that number
+
 import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
@@ -5,8 +7,9 @@ import java.util.Scanner;
 public class GuessRandom {
 
     public static void main(String[] args) {
-        Scanner console = new Scanner(System.in);
+//        Main method that creates the Scanner and executes all other methods
 
+        Scanner console = new Scanner(System.in);
 
         intro();
         System.out.println();
@@ -18,6 +21,8 @@ public class GuessRandom {
     }
 
     public static void playAgain(Scanner console) {
+//        This method will determine if the user wants play the game again
+
         boolean yes_or_no = true;
 
         while (yes_or_no) {
@@ -38,6 +43,8 @@ public class GuessRandom {
     }
 
     public static void isReady(Scanner console) {
+//        Determines if player is ready to begin
+
         boolean ready = false;
         while (!ready) {
             System.out.print("Are you ready? y/n ");
@@ -48,11 +55,15 @@ public class GuessRandom {
     }
 
     public static void intro() {
+//        Handles the introduction of the program
+
         System.out.println("Welcome to number guesser!");
         System.out.println("Think of a number between 1-10 and I will try to guess it.");
     }
 
     public static void guessNum(Scanner console) {
+//        This method handles user input on whether the guesses are right or wrong, and handles wrong inputs.
+
         int guesses = 0;
         boolean your_num = false;
 
@@ -81,6 +92,8 @@ public class GuessRandom {
     }
 
     public static int randomNum() {
+//        Creates random numbers between 1 and 10
+
         Random rand = new Random();
         return rand.nextInt(1, 11);
     }

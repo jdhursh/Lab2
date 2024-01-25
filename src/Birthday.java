@@ -1,9 +1,13 @@
+/*This program takes the birthdays of two people along with today's date, tells the user how many days are until each birthday,
+  and determines which birthday is closer*/
+
 import java.util.Scanner;
 
 import static java.lang.Math.abs;
 
 public class Birthday {
     public static void main(String[] args) {
+//        main method executing each other method
 
         intro();
 
@@ -16,6 +20,8 @@ public class Birthday {
     }
 
     public static void intro() {
+//        The introduction and instructions for the program
+
         System.out.println("----------------------------------");
         System.out.println("How many days until your birthday?");
         System.out.println("----------------------------------");
@@ -30,6 +36,8 @@ public class Birthday {
 
 
     public static void finale(int[][] nums) {
+//        This method shows the results of days remaining and handles the logic for determining which one is sooner.
+
         int bday1 = dayMath(nums, 0);
         int bday2 = dayMath(nums, 1);
 
@@ -50,6 +58,8 @@ public class Birthday {
     }
 
     public static int dayMath(int[][] nums, int n) {
+//        This method determines how many days there are until each birthday
+
         int today = monthToDay(nums[2][0], nums[2][0]) + nums[2][1];
 
         int days = monthToDay(nums[n][0], nums[2][0]) + nums[n][1];
@@ -63,6 +73,8 @@ public class Birthday {
 
 
     public static String[] userInput() {
+//        This method prompts the user and records their responses into an array.
+
         try (Scanner console = new Scanner(System.in)) {
 
             System.out.println("Please enter the month and day of birthday 1: ");
@@ -95,6 +107,8 @@ public class Birthday {
     }
 
     public static String[] splitDate(String[] dates, int n) {
+//        This method splits the entered date either by slashes or spaces
+
         String date = dates[n];
         String[] elements = {};
         if (date.contains("/")) {
@@ -106,6 +120,7 @@ public class Birthday {
     }
 
     public static int[][] stringToInt(String[] strings) {
+//        This method takes the String inputs from userInput, splits them, and turns them into integers
 
         int[] date1 = new int[0];
         int[] date2 = new int[0];
@@ -136,6 +151,7 @@ public class Birthday {
     }
 
     public static int monthToDay(int birthMonth, int todaysMonth) {
+//        This method determines how many days there are in each month, and adds them based on userInput
 
         int jan, mar, may, jul, aug, oct, dec;
         jan = mar = may = jul = aug = oct = dec = 31;

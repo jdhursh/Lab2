@@ -5,16 +5,31 @@ import static java.lang.Math.abs;
 public class Birthday {
     public static void main(String[] args) {
 
+        intro();
+
+        String[] stringNums = userInput();
+
+        int[][] nums = stringToInt(stringNums);
+
+        finale(nums);
+
+    }
+
+    public static void intro() {
+        System.out.println("----------------------------------");
         System.out.println("How many days until your birthday?");
+        System.out.println("----------------------------------");
         System.out.println();
+        System.out.println("----------------------------------------------");
         System.out.println("Dates should be formatted like the following: ");
         System.out.println("05/27");
         System.out.println("05 27");
+        System.out.println("----------------------------------------------");
         System.out.println();
+    }
 
-        String[] stringNums = userInput();
-        int[][] nums = stringToInt(stringNums);
 
+    public static void finale(int[][] nums) {
         int bday1 = dayMath(nums, 0);
         int bday2 = dayMath(nums, 1);
 
@@ -57,7 +72,7 @@ public class Birthday {
 
             System.out.println("Please enter the month and day of birthday 2: ");
             String dateOfBirth2 = console.nextLine();
-            while (dateOfBirth2.length() !=5) {
+            while (dateOfBirth2.length() != 5) {
                 System.out.println("Please enter the month and day of birthday 2: ");
                 dateOfBirth2 = console.nextLine();
             }

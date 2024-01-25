@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.*;
 
 public class Range {
     public static void main(String[] args) {
@@ -15,10 +13,27 @@ public class Range {
     }
 
     public static int userInput(){
-        System.out.println("please enter a number: ");
+        boolean caughtYa = true;
+        int num = 0;
         Scanner console = new Scanner(System.in);
 
-        return console.nextInt();
+        System.out.print("Please enter a number: ");
+
+        while (caughtYa) {
+            try {
+                caughtYa = false;
+                num = console.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println();
+                System.out.println("That is not a number.");
+                System.out.println();
+                System.out.print("Please enter a number: ");
+
+                console.next();
+                caughtYa = true;
+            }
+        }
+        return num;
     }
 
     public static int digitRange(int num) {

@@ -8,11 +8,30 @@ public class GradePointAverage {
     }
 
     public static void grade(Scanner console) {
-        System.out.println("Enter a student's record: ");
+        int num_of_scores = 0;
+
+        boolean caughtYa = true;
+        System.out.print("Enter a student's record: ");
         String input = console.nextLine();
         String[] inputSplit = input.split(" ");
+        String name = inputSplit[0].toLowerCase();
 
-        int num_of_scores = Integer.parseInt(inputSplit[1]);
+        while(caughtYa) {
+            try {
+                caughtYa = false;
+                num_of_scores = Integer.parseInt(inputSplit[1]);
+
+            } catch (NumberFormatException e) {
+                System.out.println("There was a mistake. Try again.");
+                System.out.println();
+                System.out.print("Enter a student's record: ");
+                input = console.nextLine();
+                inputSplit = input.split(" ");
+                caughtYa = true;
+
+            }
+        }
+
 
         int score_sums = 0;
 
@@ -22,13 +41,15 @@ public class GradePointAverage {
 
         double gpa = (double) score_sums /num_of_scores;
 
+        System.out.println();
+
+        System.out.print(Name.capitalize(name) + "'s grade is ");
         if ((gpa*100)%10 == 0){
-            System.out.print(inputSplit[0] + "'s grade is ");
             System.out.printf("%.1f", gpa);
         } else {
-            System.out.print(inputSplit[0] + "'s grade is ");
             System.out.printf("%.2f", gpa);
         }
+        System.out.println();
 
 
     }
